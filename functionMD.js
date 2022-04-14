@@ -1,22 +1,25 @@
 const path = require('path');
 const fs = require('fs');
+const color = require('colors');
+
 //Función que lee directorio y retorna los archivos.md
-const filesMD = (iPath) => {
+function filesMD(iPath) {
     const readDirectory = fs.readdirSync(iPath, 'utf8');
-    filesAbsolute = readDirectory.filter((file) => {
+    const arrayFiles = readDirectory.filter((file) => {
         if (path.extname(file) === ".md") {
             return file;
         }                                                     // podria crear bucle con iteración(?)
+        // else if (path.extname(file) === "") {
+        //     if (fs.lstatSync(file).isDirectory()) {
+        //         return filesMD(file);
+        //     }
+        // }
     });
-    // readDirectory.filter((file2) => {
-    //   if (fs.lstatSync(file2).isDirectory()) {
-    //     filesMD(file2);
-    //   }
-    // });
+    return arrayFiles;
 };
 
 //Función que extrae los link de los archivos.md
-const arrayOfLinks = (pathAbsolute) => {
+function arrayOfLinks(pathAbsolute) {
     pathAbsolute.map(function (file) {
 
         //expresión regular para hacer la comparación con links
@@ -26,11 +29,13 @@ const arrayOfLinks = (pathAbsolute) => {
         let arrayLinks = [];
         if (regExp.test(dataFiles) == true) {                 // extracción de links con regExp
             arrayLinks = dataFiles.match(regExp);
-            console.log('En "', file, '" sí existen links para analizar. Links:', arrayLinks);
+            console.log(color.bold.cyan('En "', file, '" sí existen links para analizar.'));
+            return arrayLinks;
         } else {
-            console.log('En "', file, '" no existen links para analizar.');
+            console.log(color.red('En "', file, '" no existen links para analizar.'));
         }
     });
 };
-module.exports = filesMD();
-module.exports = arrayOfLinks();
+
+exports.filesMD = filesMD;
+exports.arrayLinks = arrayOfLinks;
