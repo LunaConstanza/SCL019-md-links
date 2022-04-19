@@ -4,6 +4,10 @@
   "engines": {
     "node": ">=14.x"
   },
+  "scripts": {
+    "test": "jest --coverage --verbose",
+    "dev": "node terminal.js"
+  },
   "dependencies": {
     "colors": "^1.4.0",
     "gradient-string": "^2.0.0",
@@ -12,6 +16,7 @@
   "devDependencies": {
     "eslint": "^8.13.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.26.0"
+    "eslint-plugin-import": "^2.26.0",
+    "jest": "^27.5.1"
   }
 }
