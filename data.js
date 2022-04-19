@@ -109,8 +109,8 @@ const dataLinks = links => {
 module.exports = {
     routeEx,
     isFolder,
-    extractionFilesMD,
     fileExtensionMD,
+    extractionFilesMD,
     extractionLinks,
     dataLinks,
     // basicStats,
