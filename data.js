@@ -49,20 +49,26 @@ const extractionFilesMD = directory => {
     return arrayFiles;
 };
 
-// función que extrae los link de los archivos.md
+// función que extrae en un array con links x archivo .md 
 const extractionLinks = pathAbsolute => {
-    let arrayLinks = pathAbsolute.map( file => {
-        let dataFiles = readFile(file);
+    let allLinks = [];
+    pathAbsolute.forEach(file => {
+        const dataFiles = readFile(file);
         // extracción de links con regExp
         if (regExp.test(dataFiles)) {
-            let arLinks = dataFiles.match(regExp)
+            let arLinks = dataFiles.match(regExp);
             console.log(color.bold.cyan(`En ${file} existen ${arLinks.length} links para analizar.`));
-            return arLinks;
+            arLinks.forEach(arrayLinks => {
+                allLinks.push({
+                    'file': file,
+                    'href': arrayLinks,
+                })
+            })
         } else {
             console.log(color.red(`En ${file} no existen links para analizar.`));
         }
     });
-    console.log(arrayLinks);
+    return allLinks;
 };
 
 //Función para extraer info de links
@@ -71,28 +77,34 @@ const dataLinks = links => {
         return fetch(e)
             .then((response) => {
                 return {
-                    href: e,
+                    file: e.file,
                     // text: ,
-                    // file: ,
+                    href: e.href,
                     status: response.status,
                     ok: 'ok',
                 }
             })
             .catch((error) => {
                 return {
-                    href: e,
+                    file: e.file,
                     // text: ,
-                    // file: ,
-                    status: (error.status === 'undefined') ? 'No existe status' : error.status,
+                    href: e.href,
+                    status: error.status === undefined ? 'No existe status' : error.status,
                     ok: 'fail',
                 }
             })
     });
-    Promise.all(objs)
-        .then((response) => {
-            console.log(response);
-        })
+    return Promise.all(objs)
+        // .then((response) => {
+        //     console.log(response);
+        // })
 }
+
+// const basicStats = (allLinks) => {
+//     const totalLinks = allLinks.length;
+//     const fileLinks = allLinks.file;
+//     console.log(`Total: ${totalLinks}\nFile: ${fileLinks}`);
+// }
 
 module.exports = {
     routeEx,
@@ -101,4 +113,5 @@ module.exports = {
     fileExtensionMD,
     extractionLinks,
     dataLinks,
+    // basicStats,
 };
