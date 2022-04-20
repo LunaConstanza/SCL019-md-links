@@ -95,9 +95,6 @@ const dataLinks = links => {
             })
     });
     return Promise.all(objs)
-        // .then((response) => {
-        //     console.log(response);
-        // })
 }
 
 // const basicStats = (allLinks) => {

@@ -1,6 +1,5 @@
 const { routeEx, isFolder, extractionFilesMD, fileExtensionMD, extractionLinks, dataLinks, /*basicStats*/ } = require('./data');
 const color = require('colors');
-const gradient = require('gradient-string');
 
 const mdLinks = (inputPath, options) => {
   return new Promise(function (res, rej) {
@@ -43,7 +42,7 @@ const mdLinks = (inputPath, options) => {
       res(dataAllLinksValidate);
     }
     else if (options === '--stats'){
-      res(gradient.cristal(`Existen ${links.length} links en total.`));
+      res(`Existen ${links.length} links en total.`);
     }
   });
 };
