@@ -12,7 +12,7 @@ const routeEx = inputPath => fs.existsSync(inputPath);
 const isFolder = inputPath => fs.lstatSync(inputPath).isDirectory();
 
 // ¿es archivo?
-const isFile = inputPath => fs.lstatSync(inputPath).isFile();
+// const isFile = inputPath => fs.lstatSync(inputPath).isFile();
 
 // lectura de directorio
 const readFolder = directory => fs.readdirSync(directory, 'utf8');

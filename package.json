@@ -1,6 +1,20 @@
 {
   "name": "md-links",
-  "version": "0.1.0",
+  "version": "1.1.0",
+  "description": "Módulo para validar links de archivos Markdown.",
+  "author": {
+    "name": "Luna González",
+    "email": "lunagonb@gmail.com",
+    "url": "https://www.linkedin.com/in/lunaconstanza/"
+  },
+  "main": "./index.js",
+  "bin": {
+    "mdLinks": "./cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LunaConstanza/SCL019-md-links"
+  },
   "engines": {
     "node": ">=14.x"
   },
