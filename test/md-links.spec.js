@@ -77,7 +77,7 @@ describe('La función fileExtensionMD verifica si el archivo tiene la extensión
   it('Deberia retornar true si el archivo es .md', () => {
     expect(fileExtensionMD(pathAbsolute)).toBe(true);
   });
-  it('Deberia retornar false si el archivo es diferente a md', () => {
+  it('Deberia retornar false si el archivo es diferente a .md', () => {
     expect(routeEx(pathErronea)).toBe(false);
   });
 })
@@ -123,34 +123,30 @@ describe('La función dataLinks valida los links en ok/fail y su status.', () =>
 })
 
 // TEST FUNCIÓN MDLINKS
-describe('la funcion mdLinks según la ruta y su 2do parametro devuelve la data/stats de los links.', () => {
+describe('La funcion mdLinks según la ruta y su 2do parametro devuelve la data/stats de los links.', () => {
   it('Debería retornar una función.', () => {
     expect(typeof mdLinks).toBe('function');
   });
-  //----------------- REVISAAAAAAR porque estos son para .CATSH (la función rechaza)----------
   test('Debería retornar "La ruta ingresada no es válida." si la ruta es inválida.', async () => {
-    const data = await mdLinks(pathErronea, undefined);
-    expect(data).toStrictEqual('La ruta ingresada no es válida.');
+    await expect(mdLinks(pathErronea, undefined)).rejects.toMatch('La ruta ingresada no es válida.');
   });
-  test('Debería retornar "La ruta ./package.json no corresponde a un archivo Markdown." si la ruta no es archivo.md.', async () => {
-    const data = await mdLinks(pathDiferent, undefined);
-    expect(data).toStrictEqual('La ruta ./package.json no corresponde a un archivo Markdown.');
+  test('Debería retornar "La ruta -nameFile- no corresponde a un archivo Markdown." si la ruta no es archivo.md.', async () => {
+    await expect(mdLinks(pathDiferent, undefined)).rejects.toMatch('La ruta ./package.json no corresponde a un archivo Markdown.');
   });
-  // ----------------------------- HASTA AQUÍ REVISAR --------------------------------------------
+  test('Debería retornar el total de los links encontrados en el directorio.', async () => {
+    const data = await mdLinks(pathRelative, '--stats');
+    expect(data).toStrictEqual('Existen 80 links en total.');
+  });
   test('Debería retornar los links con las propiedades href y file.', async () => {
     const data = await mdLinks(pathPrueba1, undefined);
     expect(data).toStrictEqual(arrayLinks);
-  });
-  test('Debería retornar el total de los links encontrados.', async () => {
-    const data = await mdLinks(pathPrueba1, '--stats');
-    expect(data).toStrictEqual('Existen 3 links en total.');
   });
   test('Debería retornar los links con todas sus propiedades.', async () => {
     const data = await mdLinks(pathPrueba1, '--validate');
     expect(data).toStrictEqual(validateLinks);
   });
   test('Debería retornar el total de los links encontrados.', async () => {
-    const data = await mdLinks(pathRelative, '--stats');
-    expect(data).toStrictEqual('Existen 80 links en total.');
+    const data = await mdLinks(pathPrueba1, '--stats');
+    expect(data).toStrictEqual('Existen 3 links en total.');
   });
 });
