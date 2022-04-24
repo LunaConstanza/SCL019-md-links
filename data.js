@@ -57,7 +57,7 @@ const extractionLinks = pathAbsolute => {
         // extracción de links con regExp
         if (regExp.test(dataFiles)) {
             let arLinks = dataFiles.match(regExp);
-            console.log(color.bold.cyan(`En ${file} existen ${arLinks.length} links para analizar.`));
+            console.log(color.bold.cyan(`- En ${file} existen ${arLinks.length} links para analizar.`));
             arLinks.forEach(arrayLinks => {
                 allLinks.push({
                     'file': file,
@@ -65,7 +65,7 @@ const extractionLinks = pathAbsolute => {
                 })
             })
         } else {
-            console.log(color.bold.red(`En ${file} no existen links para analizar.`));
+            console.log(color.bold.red(`- En ${file} no existen links para analizar.`));
         }
     });
     return allLinks;

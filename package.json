@@ -1,6 +1,6 @@
 {
-  "name": "luna-mdlinks",
-  "version": "1.0.0",
+  "name": "lunaconstanza-mdlinks",
+  "version": "1.0.3",
   "description": "Módulo para validar links de archivos Markdown.",
   "author": {
     "name": "Luna González",
@@ -20,7 +20,7 @@
   },
   "scripts": {
     "test": "jest --coverage --verbose",
-    "dev": "node terminal.js"
+    "dev": "node cli.js"
   },
   "dependencies": {
     "colors": "^1.4.0",
