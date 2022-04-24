@@ -1,6 +1,6 @@
 {
-  "name": "md-links",
-  "version": "1.1.0",
+  "name": "luna-mdlinks",
+  "version": "1.0.0",
   "description": "Módulo para validar links de archivos Markdown.",
   "author": {
     "name": "Luna González",

@@ -65,7 +65,7 @@ const extractionLinks = pathAbsolute => {
                 })
             })
         } else {
-            console.log(color.red(`En ${file} no existen links para analizar.`));
+            console.log(color.bold.red(`En ${file} no existen links para analizar.`));
         }
     });
     return allLinks;
@@ -97,12 +97,6 @@ const dataLinks = links => {
     return Promise.all(objs)
 }
 
-// const basicStats = (allLinks) => {
-//     const totalLinks = allLinks.length;
-//     const fileLinks = allLinks.file;
-//     console.log(`Total: ${totalLinks}\nFile: ${fileLinks}`);
-// }
-
 module.exports = {
     routeEx,
     isFolder,
@@ -110,5 +104,4 @@ module.exports = {
     extractionFilesMD,
     extractionLinks,
     dataLinks,
-    // basicStats,
 };

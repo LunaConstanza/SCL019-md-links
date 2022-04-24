@@ -1,4 +1,4 @@
-const { routeEx, isFolder, extractionFilesMD, fileExtensionMD, extractionLinks, dataLinks, /*basicStats*/ } = require('./data');
+const { routeEx, isFolder, extractionFilesMD, fileExtensionMD, extractionLinks, dataLinks } = require('./data');
 const color = require('colors');
 
 const mdLinks = (inputPath, options) => {
@@ -31,9 +31,6 @@ const mdLinks = (inputPath, options) => {
 
     // Ocupamos la función para extraer data de validación de todos los links
     const dataAllLinksValidate = dataLinks(links);
-
-    //Ocupamos la función para obtener estadisticas básicas de la recopilación de los links
-    // const stats = basicStats(links);
 
     if (options === undefined) {
       res(links)
