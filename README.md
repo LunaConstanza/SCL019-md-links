@@ -1,5 +1,4 @@
 # Validator Markdown Links
-![md-links](images/thumb.png)
 ## Índice
 * [1. Descripción](#1-descripción)
 * [2. Instrucciones](#2-instrucciones)
@@ -30,20 +29,25 @@ _--validate_ indica el href, status, ok, y el file donde se encontro el link.
 _undefined_ indica el href y el file donde se encontro el link.  
 
 #### por Librería:
+
 ```
 const {mdLinks} = require('lunaconstanza-mdlinks');
 
 mdLinks('path', 'options')
 ```
+
 Para ver los resultados debe correr el archivo con node por terminal.
 
 #### por terminal (CLI - Interfaz de Línea de Comando):
+
 ```
 $ mdLinks path options
 ```
 
 ## 3. Ejemplos
+
 por Librería
+
 ```
 const {mdLinks} = require('lunaconstanza-mdlinks');
 mdLinks('.README.md', '--stats')
@@ -51,6 +55,7 @@ mdLinks('.README.md', '--stats')
 ![resultado](images/resultado_libreria.jpg)
 
 por Terminal
+
 ![resultado](images/resultado_terminal.jpg)
 
 ## 4. Diagrama de flujo
@@ -58,5 +63,6 @@ por Terminal
 
 ## 5. Planificación
 
-Se utilizo [_Projects_](https://github.com/LunaConstanza/SCL019-md-links/projects/1) de GitHub para tener una organización más fluída.
+Se utilizó [_Projects_](https://github.com/LunaConstanza/SCL019-md-links/projects/1) de GitHub para tener una organización más fluída.
+
 ![projects](images/projects.PNG)
