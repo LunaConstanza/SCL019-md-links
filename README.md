@@ -1,5 +1,5 @@
 # Validator Markdown Links
-![md-links](./images/thumb.png)
+![md-links](images/thumb.png)
 ## Índice
 * [1. Descripción](#1-descripción)
 * [2. Instrucciones](#2-instrucciones)
@@ -48,15 +48,15 @@ por Librería
 const {mdLinks} = require('lunaconstanza-mdlinks');
 mdLinks('.README.md', '--stats')
 ```
-![resultado](./images/resultado_libreria.jpg)
+![resultado](images/resultado_libreria.jpg)
 
 por Terminal
-![resultado](./images/resultado_terminal.jpg)
+![resultado](images/resultado_terminal.jpg)
 
 ## 4. Diagrama de flujo
-![diagrama](./images/diagrama.png)
+![diagrama](images/diagrama.png)
 
 ## 5. Planificación
 
 Se utilizo [_Projects_](https://github.com/LunaConstanza/SCL019-md-links/projects/1) de GitHub para tener una organización más fluída.
-![projects](./images/projects.PNG)
+![projects](images/projects.PNG)

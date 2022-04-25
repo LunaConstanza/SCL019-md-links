@@ -3,7 +3,7 @@ const { mdLinks } = require('./index');
 const color = require('colors');
 const gradient = require('gradient-string');
 
-const [termMethod, termPath, termVal1, /*termVal2*/] = process.argv;
+const [termMethod, termPath, termVal1, /*termVal2*/] = process.argv.slice(2);
 
 // Validación de parámetros por terminal
 if (termMethod == 'mdLinks' && termPath && termVal1 == undefined) {
