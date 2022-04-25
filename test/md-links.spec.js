@@ -7,7 +7,7 @@ const pathErronea = './package.jn';
 const pathDiferent = './package.json';
 const pathRelative = './';
 const pathRelative2 = './test';
-const pathAbsolute = './README.md';
+const pathAbsolute = './readme.md';
 const pathPrueba0 = './prueba0.md';
 const pathPrueba1 = './prueba1.md';
 const arrayLinks = [
@@ -91,7 +91,7 @@ describe('La función extractionFilesMD extrae los archivos .md de un directorio
     let arrayFiles = extractionFilesMD(pathRelative);
     expect(arrayFiles[0]).toEqual('prueba0.md');
     expect(arrayFiles[1]).toEqual('prueba1.md');
-    expect(arrayFiles[2]).toEqual('README.md');
+    expect(arrayFiles[2]).toEqual('readme.md');
   });
   it('Debería retornar un array vacio si el directorio no tiene archivos.md', () => {
     expect(extractionFilesMD(pathRelative2)).toEqual([]);
@@ -135,7 +135,7 @@ describe('La funcion mdLinks según la ruta y su 2do parametro devuelve la data/
   });
   test('Debería retornar el total de los links encontrados en el directorio.', async () => {
     const data = await mdLinks(pathRelative, '--stats');
-    expect(data).toStrictEqual('Existen 80 links en total.');
+    expect(data).toStrictEqual('Existen 4 links en total.');
   });
   test('Debería retornar los links con las propiedades href y file.', async () => {
     const data = await mdLinks(pathPrueba1, undefined);
